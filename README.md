@@ -40,14 +40,14 @@ public class MyProgressFragment extends ProgressFragment {
 
 ``` java
 @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        // Setup content view
-        setContentView(R.layout.content);
-        // Setup text for empty content
-        setEmptyText(R.string.empty);
-        // ...
-    }
+public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    // Setup content view
+    setContentView(R.layout.content);
+    // Setup text for empty content
+    setEmptyText(R.string.empty);
+    // ...
+}
 ```
 
 * Display of indeterminate progress indicator
