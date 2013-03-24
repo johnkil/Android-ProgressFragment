@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Android-ProgressFragmnet by johnkil</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Android-ProgressFragmnet</h1>
+          <h2>Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/johnkil/Android-ProgressFragmnet/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/johnkil/Android-ProgressFragmnet/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/johnkil/Android-ProgressFragmnet" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>Android-ProgressFragmnet</h1>
+
+<p>Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data. Based on <a href="http://developer.android.com/reference/android/app/ListFragment.html">ListFragment</a>.</p>
+
+<h2>Sample</h2>
+
+<p>A sample application is available on Google Play:</p>
+
+<p><a href="http://play.google.com/store/apps/details?id=com.devspark.progressfragment.sample">
+  <img alt="Get it on Google Play" src="http://www.android.com/images/brand/get_it_on_play_logo_small.png"></a></p>
+
+<p><img src="http://i50.tinypic.com/2b9jy9.png" alt="screenshot"></p>
+
+<h2>Compatibility</h2>
+
+<p>This library is compatible from API 4 (Android 1.6).</p>
+
+<h2>Usage</h2>
+
+<p>To display the progress fragment you need the following code:</p>
+
+<ul>
+<li>Create your implementation of progress fragment</li>
+</ul><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgressFragment</span> <span class="kd">extends</span> <span class="n">ProgressFragment</span> <span class="o">{</span>
+    <span class="c1">// your code of fragment</span>
+<span class="o">}</span>
+</pre></div>
+
+<ul>
+<li>Setup content view and empty text (optional) in <code>onActivityCreate()</code> method.</li>
+</ul><div class="highlight"><pre><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onActivityCreated</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onActivityCreated</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="c1">// Setup content view</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">content</span><span class="o">);</span>
+    <span class="c1">// Setup text for empty content</span>
+    <span class="n">setEmptyText</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">empty</span><span class="o">);</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+
+<ul>
+<li>Display of indeterminate progress indicator</li>
+</ul><div class="highlight"><pre><span class="n">setContentShown</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</pre></div>
+
+<ul>
+<li>When the data is loaded to set whether the content is empty and show content</li>
+</ul><div class="highlight"><pre><span class="n">setContentEmpty</span><span class="o">(</span><span class="cm">/* true if content is empty else false */</span><span class="o">);</span>
+<span class="n">setContentShown</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</pre></div>
+
+<h2>Developed By</h2>
+
+<ul>
+<li>Evgeny Shishkin - <a href="mailto:johnkil78@gmail.com">johnkil78@gmail.com</a>
+</li>
+</ul><h2>License</h2>
+
+<pre><code>Copyright 2013 Evgeny Shishkin
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+        </section>
+
+        <footer>
+          Android-ProgressFragmnet is maintained by <a href="https://github.com/johnkil">johnkil</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
