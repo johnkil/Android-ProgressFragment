@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.devspark.fragmnet;
+package com.devspark.progressfragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,32 +25,33 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
- * 
+ * The implementation of the fragment to display content. Based on {@link android.support.v4.app.ListFragment}.
+ * If you are waiting for the initial data, you'll can displaying during this time an indeterminate progress indicator.
+ *
  * @author Evgeny Shishkin
- * 
  */
 public class ProgressFragment extends Fragment {
 
-    private View mEmptyView;
-    private TextView mStandardEmptyView;
     private View mProgressContainer;
     private View mContentContainer;
     private View mContentView;
-    private CharSequence mEmptyText;
+    private View mEmptyView;
     private boolean mContentShown;
+    private boolean mIsContentEmpty;
 
     /**
-     * Provide default implementation to return a simple list view.  Subclasses
+     * Provide default implementation to return a simple view.  Subclasses
      * can override to replace with their own layout.  If doing so, the
-     * returned view hierarchy <em>must</em> have a ListView whose id
-     * is {@link android.R.id#list android.R.id.list} and can optionally
+     * returned view hierarchy <em>must</em> have a progress container  whose id
+     * is {@link R.id#progress_container R.id.progress_container}, content container whose id
+     * is {@link R.id#content_container R.id.content_container} and can optionally
      * have a sibling view id {@link android.R.id#empty android.R.id.empty}
-     * that is to be shown when the list is empty.
-     * 
+     * that is to be shown when the content is empty.
+     * <p/>
      * <p>If you are overriding this method with your own custom content,
-     * consider including the standard layout {@link android.R.layout#list_content}
+     * consider including the standard layout {@link R.layout#fragment_progress}
      * in your layout file, so that you continue to retain all of the standard
-     * behavior of ListFragment.  In particular, this is currently the only
+     * behavior of ProgressFragment. In particular, this is currently the only
      * way to have the built-in indeterminant progress state be shown.
      */
     @Override
@@ -59,7 +60,7 @@ public class ProgressFragment extends Fragment {
     }
 
     /**
-     * Attach to content view once the view hierarchy has been created.
+     * Attach to view once the view hierarchy has been created.
      */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -68,82 +69,132 @@ public class ProgressFragment extends Fragment {
     }
 
     /**
-     * Detach from list view.
+     * Detach from view.
      */
     @Override
     public void onDestroyView() {
         mContentShown = false;
-        mEmptyView = mProgressContainer = mContentContainer = mContentView = null;
-        mStandardEmptyView = null;
+        mIsContentEmpty = false;
+        mProgressContainer = mContentContainer = mContentView = mEmptyView = null;
         super.onDestroyView();
     }
 
     /**
-     * 
-     * @param contentView
+     * Return content view or null if the content view has not been initialized.
+     *
+     * @return content view or null
+     * @see #setContentView(android.view.View)
+     * @see #setContentView(int)
      */
-    public void setContentView(View contentView) {
+    public View getContentView() {
+        return mContentView;
+    }
+
+    /**
+     * Set the content content from a layout resource.
+     *
+     * @param layoutResId Resource ID to be inflated.
+     * @see #setContentView(android.view.View)
+     * @see #getContentView()
+     */
+    public void setContentView(int layoutResId) {
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View contentView = layoutInflater.inflate(layoutResId, null);
+        setContentView(contentView);
+    }
+
+    /**
+     * Set the content view to an explicit view. If the content view was installed earlier,
+     * the content will be replaced with a new view.
+     *
+     * @param view The desired content to display. Value can't be null.
+     * @see #setContentView(int)
+     * @see #getContentView()
+     */
+    public void setContentView(View view) {
         ensureContent();
+        if (view == null) {
+            throw new IllegalArgumentException("Content view can't be null");
+        }
         if (mContentContainer instanceof ViewGroup) {
             ViewGroup contentContainer = (ViewGroup) mContentContainer;
             if (mContentView == null) {
-                contentContainer.addView(contentView);
+                contentContainer.addView(view);
             } else {
                 int index = contentContainer.indexOfChild(mContentView);
                 // replace content view
                 contentContainer.removeView(mContentView);
-                contentContainer.addView(contentView, index);
+                contentContainer.addView(view, index);
             }
-            mContentView = contentView;
+            mContentView = view;
         } else {
             throw new IllegalStateException("Can't be used with a custom content view");
         }
     }
 
     /**
-     * The default content for a ListFragment has a TextView that can be shown when the list is empty. If you would like to have it shown, call this method to
-     * supply the text it should use.
-     * 
-     * @param text
+     * The default content for a ProgressFragment has a TextView that can be shown when
+     * the content is empty {@link #setContentEmpty(boolean)}.
+     * If you would like to have it shown, call this method to supply the text it should use.
+     *
+     * @param resId Identification of string from a resources
+     * @see #setEmptyText(CharSequence)
+     */
+    public void setEmptyText(int resId) {
+        setEmptyText(getString(resId));
+    }
+
+    /**
+     * The default content for a ProgressFragment has a TextView that can be shown when
+     * the content is empty {@link #setContentEmpty(boolean)}.
+     * If you would like to have it shown, call this method to supply the text it should use.
+     *
+     * @param text Text for empty view
+     * @see #setEmptyText(int)
      */
     public void setEmptyText(CharSequence text) {
         ensureContent();
-        if (mStandardEmptyView == null) {
+        if (mEmptyView != null && mEmptyView instanceof TextView) {
+            ((TextView) mEmptyView).setText(text);
+        } else {
             throw new IllegalStateException("Can't be used with a custom content view");
         }
-        mStandardEmptyView.setText(text);
-        mEmptyText = text;
     }
-    
+
     /**
      * Control whether the content is being displayed.  You can make it not
      * displayed if you are waiting for the initial data to show in it.  During
      * this time an indeterminant progress indicator will be shown instead.
-     * 
+     *
      * @param shown If true, the content view is shown; if false, the progress
-     * indicator.  The initial value is true.
+     *              indicator. The initial value is true.
+     * @see #setContentShownNoAnimation(boolean)
      */
     public void setContentShown(boolean shown) {
         setContentShown(shown, true);
     }
-    
+
     /**
      * Like {@link #setContentShown(boolean)}, but no animation is used when
      * transitioning from the previous state.
+     *
+     * @param shown If true, the content view is shown; if false, the progress
+     *              indicator. The initial value is true.
+     * @see #setContentShown(boolean)
      */
     public void setContentShownNoAnimation(boolean shown) {
         setContentShown(shown, false);
     }
-    
+
     /**
-     * Control whether the list is being displayed.  You can make it not
+     * Control whether the content is being displayed.  You can make it not
      * displayed if you are waiting for the initial data to show in it.  During
      * this time an indeterminant progress indicator will be shown instead.
-     * 
-     * @param shown If true, the list view is shown; if false, the progress
-     * indicator.  The initial value is true.
+     *
+     * @param shown   If true, the content view is shown; if false, the progress
+     *                indicator.  The initial value is true.
      * @param animate If true, an animation will be used to transition to the
-     * new state.
+     *                new state.
      */
     private void setContentShown(boolean shown, boolean animate) {
         ensureContent();
@@ -174,6 +225,42 @@ public class ProgressFragment extends Fragment {
         }
     }
 
+    /**
+     * Returns true if content is empty. The default content is not empty.
+     *
+     * @return true if content is null or empty
+     * @see #setContentEmpty(boolean)
+     */
+    public boolean isContentEmpty() {
+        return mIsContentEmpty;
+    }
+
+    /**
+     * If the content is empty, then set true otherwise false. The default content is not empty.
+     * You can't call this method if the content view has not been initialized before
+     * {@link #setContentView(android.view.View)} and content view not null.
+     *
+     * @param isEmpty true if content is empty else false
+     * @see #isContentEmpty()
+     */
+    public void setContentEmpty(boolean isEmpty) {
+        ensureContent();
+        if (mContentView == null) {
+            throw new IllegalStateException("Content view must be initialized before");
+        }
+        if (isEmpty) {
+            mEmptyView.setVisibility(View.VISIBLE);
+            mContentView.setVisibility(View.GONE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+            mContentView.setVisibility(View.VISIBLE);
+        }
+        mIsContentEmpty = isEmpty;
+    }
+
+    /**
+     * Initialization views.
+     */
     private void ensureContent() {
         if (mContentContainer != null && mProgressContainer != null) {
             return;
@@ -181,15 +268,6 @@ public class ProgressFragment extends Fragment {
         View root = getView();
         if (root == null) {
             throw new IllegalStateException("Content view not yet created");
-        }
-        mStandardEmptyView = (TextView) root.findViewById(R.id.empty_view);
-        if (mStandardEmptyView == null) {
-            mEmptyView = root.findViewById(android.R.id.empty);
-        } else {
-            // mStandardEmptyView.setVisibility(View.GONE);
-            if (mEmptyText != null) {
-                mStandardEmptyView.setText(mEmptyText);
-            }
         }
         mProgressContainer = root.findViewById(R.id.progress_container);
         if (mProgressContainer == null) {
@@ -199,8 +277,12 @@ public class ProgressFragment extends Fragment {
         if (mContentContainer == null) {
             throw new RuntimeException("Your content must have a ViewGroup whose id attribute is 'R.id.content_container'");
         }
+        mEmptyView = root.findViewById(android.R.id.empty);
+        if (mEmptyView != null) {
+            mEmptyView.setVisibility(View.GONE);
+        }
         mContentShown = true;
-        // We are starting without an adapter, so assume we won't
+        // We are starting without a content, so assume we won't
         // have our data right away and start with the progress indicator.
         if (mContentView == null) {
             setContentShown(false, false);
