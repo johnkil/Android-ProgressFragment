@@ -17,7 +17,7 @@
 -->
 <resources>
 
-    <string name="app_name">Android-ProgressFragmnet</string>
+    <string name="app_name">Android-ProgressFragment</string>
     <string name="menu_refresh">Refresh</string>
     <string name="title">New York City</string>
     <string name="description">New York is the most populous city in the United States and the center of the New York
