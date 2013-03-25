@@ -1,4 +1,4 @@
-Android-ProgressFragmnet
+Android-ProgressFragment
 ========================
 
 Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data. Based on [ListFragment](http://developer.android.com/reference/android/app/ListFragment.html).
