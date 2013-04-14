@@ -25,10 +25,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
- * The implementation of the fragment to display content. Based on
- * {@link android.support.v4.app.ListFragment}. If you are waiting for the
- * initial data, you'll can displaying during this time an indeterminate
- * progress indicator.
+ * The implementation of the fragment to display content. Based on {@link android.support.v4.app.ListFragment}. If you are waiting for the initial data, you'll
+ * can displaying during this time an indeterminate progress indicator.
  * 
  * @author Evgeny Shishkin
  */
@@ -42,21 +40,15 @@ public class ProgressFragment extends Fragment {
 	private boolean mIsContentEmpty;
 
 	/**
-	 * Provide default implementation to return a simple view. Subclasses can
-	 * override to replace with their own layout. If doing so, the returned view
-	 * hierarchy <em>must</em> have a progress container whose id is
-	 * {@link R.id#progress_container R.id.progress_container}, content
-	 * container whose id is {@link R.id#content_container
-	 * R.id.content_container} and can optionally have a sibling view id
-	 * {@link android.R.id#empty android.R.id.empty} that is to be shown when
-	 * the content is empty.
+	 * Provide default implementation to return a simple view. Subclasses can override to replace with their own layout. If doing so, the returned view
+	 * hierarchy <em>must</em> have a progress container whose id is {@link R.id#progress_container R.id.progress_container}, content container whose id is
+	 * {@link R.id#content_container R.id.content_container} and can optionally have a sibling view id {@link android.R.id#empty android.R.id.empty} that is to
+	 * be shown when the content is empty.
 	 * <p/>
 	 * <p>
-	 * If you are overriding this method with your own custom content, consider
-	 * including the standard layout {@link R.layout#fragment_progress} in your
-	 * layout file, so that you continue to retain all of the standard behavior
-	 * of ProgressFragment. In particular, this is currently the only way to
-	 * have the built-in indeterminant progress state be shown.
+	 * If you are overriding this method with your own custom content, consider including the standard layout {@link R.layout#fragment_progress} in your layout
+	 * file, so that you continue to retain all of the standard behavior of ProgressFragment. In particular, this is currently the only way to have the built-in
+	 * indeterminant progress state be shown.
 	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -109,8 +101,7 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * Set the content view to an explicit view. If the content view was
-	 * installed earlier, the content will be replaced with a new view.
+	 * Set the content view to an explicit view. If the content view was installed earlier, the content will be replaced with a new view.
 	 * 
 	 * @param view
 	 *            The desired content to display. Value can't be null.
@@ -139,10 +130,8 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * The default content for a ProgressFragment has a TextView that can be
-	 * shown when the content is empty {@link #setContentEmpty(boolean)}. If you
-	 * would like to have it shown, call this method to supply the text it
-	 * should use.
+	 * The default content for a ProgressFragment has a TextView that can be shown when the content is empty {@link #setContentEmpty(boolean)}. If you would
+	 * like to have it shown, call this method to supply the text it should use.
 	 * 
 	 * @param resId
 	 *            Identification of string from a resources
@@ -153,10 +142,8 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * The default content for a ProgressFragment has a TextView that can be
-	 * shown when the content is empty {@link #setContentEmpty(boolean)}. If you
-	 * would like to have it shown, call this method to supply the text it
-	 * should use.
+	 * The default content for a ProgressFragment has a TextView that can be shown when the content is empty {@link #setContentEmpty(boolean)}. If you would
+	 * like to have it shown, call this method to supply the text it should use.
 	 * 
 	 * @param text
 	 *            Text for empty view
@@ -172,13 +159,11 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * Control whether the content is being displayed. You can make it not
-	 * displayed if you are waiting for the initial data to show in it. During
-	 * this time an indeterminant progress indicator will be shown instead.
+	 * Control whether the content is being displayed. You can make it not displayed if you are waiting for the initial data to show in it. During this time an
+	 * indeterminant progress indicator will be shown instead.
 	 * 
 	 * @param shown
-	 *            If true, the content view is shown; if false, the progress
-	 *            indicator. The initial value is true.
+	 *            If true, the content view is shown; if false, the progress indicator. The initial value is true.
 	 * @see #setContentShownNoAnimation(boolean)
 	 */
 	public void setContentShown(boolean shown) {
@@ -186,12 +171,10 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * Like {@link #setContentShown(boolean)}, but no animation is used when
-	 * transitioning from the previous state.
+	 * Like {@link #setContentShown(boolean)}, but no animation is used when transitioning from the previous state.
 	 * 
 	 * @param shown
-	 *            If true, the content view is shown; if false, the progress
-	 *            indicator. The initial value is true.
+	 *            If true, the content view is shown; if false, the progress indicator. The initial value is true.
 	 * @see #setContentShown(boolean)
 	 */
 	public void setContentShownNoAnimation(boolean shown) {
@@ -199,16 +182,13 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * Control whether the content is being displayed. You can make it not
-	 * displayed if you are waiting for the initial data to show in it. During
-	 * this time an indeterminant progress indicator will be shown instead.
+	 * Control whether the content is being displayed. You can make it not displayed if you are waiting for the initial data to show in it. During this time an
+	 * indeterminant progress indicator will be shown instead.
 	 * 
 	 * @param shown
-	 *            If true, the content view is shown; if false, the progress
-	 *            indicator. The initial value is true.
+	 *            If true, the content view is shown; if false, the progress indicator. The initial value is true.
 	 * @param animate
-	 *            If true, an animation will be used to transition to the new
-	 *            state.
+	 *            If true, an animation will be used to transition to the new state.
 	 */
 	private void setContentShown(boolean shown, boolean animate) {
 		ensureContent();
@@ -260,10 +240,8 @@ public class ProgressFragment extends Fragment {
 	}
 
 	/**
-	 * If the content is empty, then set true otherwise false. The default
-	 * content is not empty. You can't call this method if the content view has
-	 * not been initialized before {@link #setContentView(android.view.View)}
-	 * and content view not null.
+	 * If the content is empty, then set true otherwise false. The default content is not empty. You can't call this method if the content view has not been
+	 * initialized before {@link #setContentView(android.view.View)} and content view not null.
 	 * 
 	 * @param isEmpty
 	 *            true if content is empty else false
