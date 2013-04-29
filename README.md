@@ -36,6 +36,14 @@ public class MyProgressFragment extends ProgressFragment {
 }
 ```
 
+or if you use [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
+
+``` java
+public class MyProgressFragment extends ProgressSherlockFragment {
+	// your code of fragment
+}
+```
+
 * Setup content view and empty text (optional) in `onActivityCreate()` method.
 
 ``` java
@@ -87,4 +95,4 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
     
-[1]: http://i50.tinypic.com/2b9jy9.png
+[1]: http://i44.tinypic.com/34ffncx.png
