@@ -17,6 +17,7 @@
 package com.devspark.progressfragment.sample;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -93,7 +94,10 @@ public class ProgressActivity extends FragmentActivity {
          *                     level up rather than to the top level of the app.
          */
         private void setDisplayHomeAsUpEnabled(boolean showHomeAsUp) {
-            getActionBar().setDisplayHomeAsUpEnabled(showHomeAsUp);
+            ActionBar actionBar = getActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
+            }
         }
     }
 }
