@@ -2,9 +2,16 @@ Change Log
 ==========
 
 
+Version 1.2 *(2013-07-13)*
+----------------------------
+* Implemented `GridFragment` & `SherlockGridFragment`.
+* Add Gradle build.
+* Fix: `NullPointerException` in `ProgressActivity`.
+
+
 Version 1.1 *(2013-04-29)*
 ----------------------------
-* Implement of ProgressSherlockFragment.
+* Implemented `SherlockProgressFragment`.
 * Fix: Failed build for minSdkVersion=4.
 
 
