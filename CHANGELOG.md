@@ -2,6 +2,11 @@ Change Log
 ==========
 
 
+Version 1.3 *(In development)*
+--------------------------------
+* …
+
+
 Version 1.2 *(2013-07-13)*
 ----------------------------
 * Implemented `GridFragment` & `SherlockGridFragment`.
