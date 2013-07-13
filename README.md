@@ -1,3 +1,4 @@
+[![Stories in Ready](http://badge.waffle.io/johnkil/Android-ProgressFragment.png)](http://waffle.io/johnkil/Android-ProgressFragment)  
 Android-ProgressFragment
 ========================
 
