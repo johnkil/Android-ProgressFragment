@@ -40,7 +40,7 @@ public class MyProgressFragment extends ProgressFragment {
 or if you use [ActionBarSherlock](https://github.com/JakeWharton/ActionBarSherlock)
 
 ``` java
-public class MyProgressFragment extends ProgressSherlockFragment {
+public class MyProgressFragment extends SherlockProgressFragment {
 	// your code of fragment
 }
 ```
