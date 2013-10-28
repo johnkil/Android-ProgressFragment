@@ -1,2 +1,4 @@
-include ':progressfragment-sample'
 include ':progressfragment'
+include ':progressfragment-sample'
+include ':sherlockprogressfragment'
+include ':sherlockprogressfragment-sample'

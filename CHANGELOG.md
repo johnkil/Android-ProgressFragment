@@ -2,9 +2,15 @@ Change Log
 ==========
 
 
-Version 1.3 *(In development)*
+Version 1.3.2 *(In development)*
 --------------------------------
-* …
+* ...
+
+
+Version 1.3.1 *(2013-10-28)*
+--------------------------------
+* Add `SherlockProgressFragment-Sample` project.
+* Pushed to Maven Central.
 
 
 Version 1.2 *(2013-07-13)*

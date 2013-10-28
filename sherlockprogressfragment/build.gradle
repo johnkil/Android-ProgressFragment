@@ -1,17 +1,13 @@
 apply plugin: 'android-library'
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.android.support:support-v4:18.0.+'
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion '17.0.0'
+    compileSdkVersion 18
+    buildToolsVersion '18.1.0'
 
     sourceSets {
         main {
@@ -21,3 +17,6 @@ android {
         }
     }
 }
+
+// Used to push in maven
+apply from: '../maven_push.gradle'

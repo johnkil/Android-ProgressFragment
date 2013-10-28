@@ -1,4 +1,3 @@
-[![Stories in Ready](http://badge.waffle.io/johnkil/Android-ProgressFragment.png)](http://waffle.io/johnkil/Android-ProgressFragment)  
 Android-ProgressFragment
 ========================
 
@@ -72,6 +71,33 @@ setContentShown(false);
 setContentEmpty(/* true if content is empty else false */);
 setContentShown(true);
 ```
+
+
+Developed By
+------------
+
+Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your build.gradle.
+
+ProgressFragment:
+``` xml
+dependencies {
+    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.3.1'
+}
+```
+
+SherlockProgressFragment:
+``` xml
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.3.1') {
+        exclude module: 'support-v4'
+    }
+}
+```
+
+Example Gradle project using Android-ProgressFragment:
+
+* [Android-ProgressFragment-Gradle-Sample](https://github.com/johnkil/Android-ProgressFragment-Gradle-Sample)
 
 
 Developed By
