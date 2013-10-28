@@ -31,11 +31,13 @@
         <hr>
 
         <section id="main_content">
-          <h1>Android-ProgressFragment</h1>
+          <h1>
+<a name="android-progressfragment" class="anchor" href="#android-progressfragment"><span class="octicon octicon-link"></span></a>Android-ProgressFragment</h1>
 
 <p>Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data. Based on <a href="http://developer.android.com/reference/android/app/ListFragment.html">ListFragment</a>.</p>
 
-<h2>Sample</h2>
+<h2>
+<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h2>
 
 <p>A sample application is available on Google Play:</p>
 
@@ -44,31 +46,33 @@
 
 <p><img src="http://i44.tinypic.com/34ffncx.png" alt="screenshot"></p>
 
-<h2>Compatibility</h2>
+<h2>
+<a name="compatibility" class="anchor" href="#compatibility"><span class="octicon octicon-link"></span></a>Compatibility</h2>
 
 <p>This library is compatible from API 4 (Android 1.6).</p>
 
-<h2>Usage</h2>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>To display the progress fragment you need the following code:</p>
 
 <ul>
 <li>Create your implementation of progress fragment</li>
-</ul><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgressFragment</span> <span class="kd">extends</span> <span class="n">ProgressFragment</span> <span class="o">{</span>
+</ul><div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgressFragment</span> <span class="kd">extends</span> <span class="n">ProgressFragment</span> <span class="o">{</span>
     <span class="c1">// your code of fragment</span>
 <span class="o">}</span>
 </pre></div>
 
 <p>or if you use <a href="https://github.com/JakeWharton/ActionBarSherlock">ActionBarSherlock</a></p>
 
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgressFragment</span> <span class="kd">extends</span> <span class="n">ProgressSherlockFragment</span> <span class="o">{</span>
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgressFragment</span> <span class="kd">extends</span> <span class="n">SherlockProgressFragment</span> <span class="o">{</span>
     <span class="c1">// your code of fragment</span>
 <span class="o">}</span>
 </pre></div>
 
 <ul>
 <li>Setup content view and empty text (optional) in <code>onActivityCreate()</code> method.</li>
-</ul><div class="highlight"><pre><span class="nd">@Override</span>
+</ul><div class="highlight highlight-java"><pre><span class="nd">@Override</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onActivityCreated</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onActivityCreated</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
     <span class="c1">// Setup content view</span>
@@ -81,21 +85,49 @@
 
 <ul>
 <li>Display of indeterminate progress indicator</li>
-</ul><div class="highlight"><pre><span class="n">setContentShown</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+</ul><div class="highlight highlight-java"><pre><span class="n">setContentShown</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 </pre></div>
 
 <ul>
 <li>When the data is loaded to set whether the content is empty and show content</li>
-</ul><div class="highlight"><pre><span class="n">setContentEmpty</span><span class="o">(</span><span class="cm">/* true if content is empty else false */</span><span class="o">);</span>
+</ul><div class="highlight highlight-java"><pre><span class="n">setContentEmpty</span><span class="o">(</span><span class="cm">/* true if content is empty else false */</span><span class="o">);</span>
 <span class="n">setContentShown</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 </pre></div>
 
-<h2>Developed By</h2>
+<h2>
+<a name="developed-by" class="anchor" href="#developed-by"><span class="octicon octicon-link"></span></a>Developed By</h2>
+
+<p>Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your build.gradle.</p>
+
+<p>ProgressFragment:</p>
+
+<div class="highlight highlight-xml"><pre>dependencies {
+    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.3.1'
+}
+</pre></div>
+
+<p>SherlockProgressFragment:</p>
+
+<div class="highlight highlight-xml"><pre>dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.3.1') {
+        exclude module: 'support-v4'
+    }
+}
+</pre></div>
+
+<p>Example Gradle project using Android-ProgressFragment:</p>
+
+<ul>
+<li><a href="https://github.com/johnkil/Android-ProgressFragment-Gradle-Sample">Android-ProgressFragment-Gradle-Sample</a></li>
+</ul><h2>
+<a name="developed-by-1" class="anchor" href="#developed-by-1"><span class="octicon octicon-link"></span></a>Developed By</h2>
 
 <ul>
 <li>Evgeny Shishkin - <a href="mailto:johnkil78@gmail.com">johnkil78@gmail.com</a>
 </li>
-</ul><h2>License</h2>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <pre><code>Copyright 2013 Evgeny Shishkin
 
@@ -115,7 +147,7 @@ limitations under the License.
 
         <footer>
           Android-ProgressFragment is maintained by <a href="https://github.com/johnkil">johnkil</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
                   <script type="text/javascript">
