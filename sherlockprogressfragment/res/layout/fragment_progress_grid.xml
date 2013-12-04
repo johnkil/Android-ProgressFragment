@@ -44,9 +44,14 @@
     </LinearLayout>
 
     <FrameLayout
-            android:id="@+id/content_container"
+            android:id="@+id/grid_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <GridView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         <TextView
                 android:id="@android:id/empty"

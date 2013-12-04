@@ -32,9 +32,9 @@ import android.widget.TextView;
  * The implementation of the fragment to display grid view. Based on {@link android.support.v4.app.ListFragment}.
  * If you are waiting for the initial data, you'll can displaying during this time an indeterminate progress indicator.
  *
- * @author e.shishkin.
+ * @author Evgeny Shishkin
  */
-public class GridFragment extends Fragment {
+public class ProgressGridFragment extends Fragment {
 
     final private Handler mHandler = new Handler();
     final private Runnable mRequestFocus = new Runnable() {
@@ -57,6 +57,9 @@ public class GridFragment extends Fragment {
     private CharSequence mEmptyText;
     private boolean mGridShown;
 
+    public ProgressGridFragment() {
+    }
+
     /**
      * Provide default implementation to return a simple grid view.  Subclasses
      * can override to replace with their own layout.  If doing so, the
@@ -66,14 +69,14 @@ public class GridFragment extends Fragment {
      * that is to be shown when the list is empty.
      * <p/>
      * <p>If you are overriding this method with your own custom content,
-     * consider including the standard layout {@link com.devspark.progressfragment.R.layout#fragment_grid}
+     * consider including the standard layout {@link com.devspark.progressfragment.R.layout#fragment_progress_grid}
      * in your layout file, so that you continue to retain all of the standard
-     * behavior of SherlockGridFragment. In particular, this is currently the only
+     * behavior of ProgressGridFragment. In particular, this is currently the only
      * way to have the built-in indeterminant progress state be shown.
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_grid, container, false);
+        return inflater.inflate(R.layout.fragment_progress_grid, container, false);
     }
 
     /**
@@ -148,9 +151,24 @@ public class GridFragment extends Fragment {
     }
 
     /**
-     * The default content for a SherlockGridFragment has a TextView that can
+     * The default content for a ProgressGridFragment has a TextView that can
      * be shown when the grid is empty. If you would like to have it
      * shown, call this method to supply the text it should use.
+     *
+     * @param resId Identification of string from a resources
+     * @see #setEmptyText(CharSequence)
+     */
+    public void setEmptyText(int resId) {
+        setEmptyText(getString(resId));
+    }
+
+    /**
+     * The default content for a ProgressGridFragment has a TextView that can
+     * be shown when the grid is empty. If you would like to have it
+     * shown, call this method to supply the text it should use.
+     *
+     * @param text Text for empty view
+     * @see #setEmptyText(int)
      */
     public void setEmptyText(CharSequence text) {
         ensureList();
@@ -170,7 +188,7 @@ public class GridFragment extends Fragment {
      * this time an indeterminant progress indicator will be shown instead.
      * <p/>
      * <p>Applications do not normally need to use this themselves.  The default
-     * behavior of SherlockGridFragment is to start with the grid not being shown, only
+     * behavior of ProgressGridFragment is to start with the grid not being shown, only
      * showing it once an adapter is given with {@link #setGridAdapter(android.widget.ListAdapter)}.
      * If the grid at that point had not been shown, when it does get shown
      * it will be do without the user ever seeing the hidden state.

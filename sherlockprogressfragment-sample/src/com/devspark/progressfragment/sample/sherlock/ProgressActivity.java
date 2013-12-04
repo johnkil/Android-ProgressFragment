@@ -31,6 +31,8 @@ public class ProgressActivity extends SherlockFragmentActivity {
     public static final int FRAGMENT_DEFAULT = 0;
     public static final int FRAGMENT_EMPTY_CONTENT = 1;
     public static final int FRAGMENT_CUSTOM_LAYOUT = 2;
+    public static final int FRAGMENT_LIST = 3;
+    public static final int FRAGMENT_GRID = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,12 @@ public class ProgressActivity extends SherlockFragmentActivity {
                     break;
                 case FRAGMENT_CUSTOM_LAYOUT:
                     fragment = CustomLayoutProgressFragment.newInstance();
+                    break;
+                case FRAGMENT_LIST:
+                    fragment = DefaultProgressListFragment.newInstance();
+                    break;
+                case FRAGMENT_GRID:
+                    fragment = DefaultProgressGridFragment.newInstance();
                     break;
                 default:
                     fragment = DefaultProgressFragment.newInstance();
