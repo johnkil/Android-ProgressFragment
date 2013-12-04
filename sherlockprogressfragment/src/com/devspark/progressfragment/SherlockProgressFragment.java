@@ -40,6 +40,9 @@ public class SherlockProgressFragment extends SherlockFragment {
     private boolean mContentShown;
     private boolean mIsContentEmpty;
 
+    public SherlockProgressFragment() {
+    }
+
     /**
      * Provide default implementation to return a simple view.  Subclasses
      * can override to replace with their own layout.  If doing so, the
@@ -52,7 +55,7 @@ public class SherlockProgressFragment extends SherlockFragment {
      * <p>If you are overriding this method with your own custom content,
      * consider including the standard layout {@link com.devspark.progressfragment.R.layout#fragment_progress}
      * in your layout file, so that you continue to retain all of the standard
-     * behavior of ProgressFragment. In particular, this is currently the only
+     * behavior of SherlockProgressFragment. In particular, this is currently the only
      * way to have the built-in indeterminant progress state be shown.
      */
     @Override
@@ -134,7 +137,7 @@ public class SherlockProgressFragment extends SherlockFragment {
     }
 
     /**
-     * The default content for a ProgressFragment has a TextView that can be shown when
+     * The default content for a SherlockProgressFragment has a TextView that can be shown when
      * the content is empty {@link #setContentEmpty(boolean)}.
      * If you would like to have it shown, call this method to supply the text it should use.
      *
@@ -146,7 +149,7 @@ public class SherlockProgressFragment extends SherlockFragment {
     }
 
     /**
-     * The default content for a ProgressFragment has a TextView that can be shown when
+     * The default content for a SherlockProgressFragment has a TextView that can be shown when
      * the content is empty {@link #setContentEmpty(boolean)}.
      * If you would like to have it shown, call this method to supply the text it should use.
      *

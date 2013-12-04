@@ -81,15 +81,15 @@ Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you
 ProgressFragment:
 ``` xml
 dependencies {
-    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.3.1'
+    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.0'
 }
 ```
 
 SherlockProgressFragment:
 ``` xml
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
-    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.3.1') {
+    compile 'com.android.support:support-v4:19.0.0'
+    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.4.0') {
         exclude module: 'support-v4'
     }
 }

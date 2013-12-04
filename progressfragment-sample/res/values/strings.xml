@@ -29,6 +29,20 @@
     </string>
     <string name="empty">No Data</string>
     <string name="loading">Loading&#8230;</string>
+    
+    <string-array name="sweets">
+        <item>Apple Pie</item>
+        <item>Banana Bread</item>
+        <item>Cupcake</item>
+        <item>Donut</item>
+        <item>Eclair</item>
+        <item>Froyo</item>
+        <item>Gingerbread</item>
+        <item>Honeycomb</item>
+        <item>Ice Cream Sandwich</item>
+        <item>Jelly Bean</item>
+        <item>KitKat</item>
+    </string-array>
 
 
 </resources>

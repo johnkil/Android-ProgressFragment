@@ -39,6 +39,9 @@ public class ProgressFragment extends Fragment {
     private boolean mContentShown;
     private boolean mIsContentEmpty;
 
+    public ProgressFragment() {
+    }
+
     /**
      * Provide default implementation to return a simple view.  Subclasses
      * can override to replace with their own layout.  If doing so, the

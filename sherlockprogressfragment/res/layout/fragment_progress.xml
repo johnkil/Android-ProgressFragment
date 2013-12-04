@@ -29,6 +29,7 @@
 
         <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
+                android:id="@android:id/progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
