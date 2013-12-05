@@ -73,8 +73,8 @@ setContentShown(true);
 ```
 
 
-Developed By
-------------
+Gradle
+------
 
 Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your build.gradle.
 
