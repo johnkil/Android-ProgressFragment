@@ -1,36 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Android-ProgressFragment : Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Android-ProgressFragment by johnkil</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Android-ProgressFragment</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/johnkil/Android-ProgressFragment">View on GitHub</a>
+      <header>
+        <h1>Android-ProgressFragment</h1>
+        <p>Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data.</p>
+      </header>
 
-          <h1 id="project_title">Android-ProgressFragment</h1>
-          <h2 id="project_tagline">Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data.</h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/johnkil/Android-ProgressFragment/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/johnkil/Android-ProgressFragment/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/johnkil/Android-ProgressFragment" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/johnkil/Android-ProgressFragment/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/johnkil/Android-ProgressFragment/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         <h1>
 <a name="android-progressfragment" class="anchor" href="#android-progressfragment"><span class="octicon octicon-link"></span></a>Android-ProgressFragment</h1>
 
@@ -99,10 +107,17 @@
 
 <p>Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your build.gradle.</p>
 
-<p>ProgressFragment:</p>
+<p>ProgressFragment (support-v4):</p>
 
 <div class="highlight highlight-xml"><pre>dependencies {
-    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.0'
+    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.+'
+}
+</pre></div>
+
+<p>ProgressFragment (native):</p>
+
+<div class="highlight highlight-xml"><pre>dependencies {
+    compile 'com.github.johnkil.android-progressfragment:progressfragment-native:1.4.+'
 }
 </pre></div>
 
@@ -110,7 +125,7 @@
 
 <div class="highlight highlight-xml"><pre>dependencies {
     compile 'com.android.support:support-v4:19.0.0'
-    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.4.0') {
+    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.4.+') {
         exclude module: 'support-v4'
     }
 }
@@ -144,16 +159,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 </code></pre>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Android-ProgressFragment maintained by <a href="https://github.com/johnkil">johnkil</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/johnkil">johnkil</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -164,7 +175,6 @@ limitations under the License.
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
