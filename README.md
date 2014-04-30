@@ -78,10 +78,17 @@ Gradle
 
 Android-ProgressFragment library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your build.gradle.
 
-ProgressFragment:
+ProgressFragment (support-v4):
 ``` xml
 dependencies {
-    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.0'
+    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.+'
+}
+```
+
+ProgressFragment (native):
+``` xml
+dependencies {
+    compile 'com.github.johnkil.android-progressfragment:progressfragment-native:1.4.+'
 }
 ```
 
@@ -89,7 +96,7 @@ SherlockProgressFragment:
 ``` xml
 dependencies {
     compile 'com.android.support:support-v4:19.0.0'
-    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.4.0') {
+    compile('com.github.johnkil.android-progressfragment:sherlockprogressfragment:1.4.+') {
         exclude module: 'support-v4'
     }
 }

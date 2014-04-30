@@ -7,6 +7,7 @@ Version 1.4.0 *(2013-12-04)*
 * Implemented `ProgressListFragment` & `SherlockProgressListFragment`.
 * Rename `GridFragment` to `ProgressGridFragment`.
 * Rename `SherlockGridFragment` to `SherlockProgressGridFragment`.
+* Support native fragments.
 
 
 Version 1.3.1 *(2013-10-28)*
