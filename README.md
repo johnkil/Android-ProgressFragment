@@ -1,6 +1,8 @@
 Android-ProgressFragment
 ========================
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--ProgressFragment-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/366)
+
 Implementation of the fragment with the ability to display indeterminate progress indicator when you are waiting for the initial data. Based on [ListFragment](http://developer.android.com/reference/android/app/ListFragment.html).
 
 
