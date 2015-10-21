@@ -132,3 +132,5 @@ License
     limitations under the License.
     
 [1]: http://i44.tinypic.com/34ffncx.png
+
+[0]: https://github.com/jkwiecien/Switcher
