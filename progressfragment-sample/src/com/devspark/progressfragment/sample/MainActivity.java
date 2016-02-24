@@ -28,7 +28,8 @@ import android.widget.ListView;
  */
 public class MainActivity extends ListActivity {
 
-    private String[] examples = new String[]{"Default", "Empty content", "Custom layout", "List", "Grid"};
+    private String[] examples = new String[]{"Default", "Empty content", "Custom layout", "List", "Grid",
+            "DialogFragment", "Empty content DialogFragment"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,12 @@ public class MainActivity extends ListActivity {
                 break;
             case 4:
                 intent.putExtra(ProgressActivity.EXTRA_FRAGMENT, ProgressActivity.FRAGMENT_GRID);
+                break;
+            case 5:
+                intent.putExtra(ProgressActivity.EXTRA_FRAGMENT, ProgressActivity.DIALOG_FRAGMENT);
+                break;
+            case 6:
+                intent.putExtra(ProgressActivity.EXTRA_FRAGMENT, ProgressActivity.DIALOG_EMPTY_CONTENT);
                 break;
             default:
                 break;

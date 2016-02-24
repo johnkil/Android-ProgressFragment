@@ -35,6 +35,8 @@ public class ProgressActivity extends FragmentActivity {
     public static final int FRAGMENT_CUSTOM_LAYOUT = 2;
     public static final int FRAGMENT_LIST = 3;
     public static final int FRAGMENT_GRID = 4;
+    public static final int DIALOG_FRAGMENT = 5;
+    public static final int DIALOG_EMPTY_CONTENT = 6;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -44,11 +46,21 @@ public class ProgressActivity extends FragmentActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             new ActionBarHelper().setDisplayHomeAsUpEnabled(true);
         }
+        int fragmentId = getIntent().getIntExtra(EXTRA_FRAGMENT, FRAGMENT_DEFAULT);
+        if (fragmentId == DIALOG_FRAGMENT) {
+            DefaultDialogProgressFragment df = DefaultDialogProgressFragment.newInstance();
+            df.show(getSupportFragmentManager(), "DefaultDialogProgressFragment");
+            return;
+        } else if (fragmentId == DIALOG_EMPTY_CONTENT) {
+            EmptyContentDialogProgressFragment df = EmptyContentDialogProgressFragment.newInstance();
+            df.show(getSupportFragmentManager(), "EmptyContentDialogProgressFragment");
+            return;
+        }
+
         // Check what fragment is shown, replace if needed.
         Fragment fragment = getSupportFragmentManager().findFragmentById(android.R.id.content);
         if (fragment == null) {
             // Make new fragment to show.
-            int fragmentId = getIntent().getIntExtra(EXTRA_FRAGMENT, FRAGMENT_DEFAULT);
             switch (fragmentId) {
                 case FRAGMENT_DEFAULT:
                     fragment = DefaultProgressFragment.newInstance();
@@ -72,6 +84,8 @@ public class ProgressActivity extends FragmentActivity {
             }
             getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment).commit();
         }
+
+
     }
 
     @Override
